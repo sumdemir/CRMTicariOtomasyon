@@ -4,18 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CRMTicariOtomasyon.Models.Siniflar;
+using PagedList;
+using PagedList.Mvc;
+
 namespace CRMTicariOtomasyon.Controllers
 {
     public class KategoriController : Controller
     {
         // GET: Kategori
         Context c= new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degerler = c.Kategoris.ToList();
+            var degerler = c.Kategoris.ToList().ToPagedList(sayfa, 4);
             return View(degerler);
         }
-
         [HttpGet]
         public ActionResult KategoriEkle() 
         {
@@ -28,7 +30,6 @@ namespace CRMTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public ActionResult KategoriSil (int id) 
         {
             var ktg = c.Kategoris.Find(id);
@@ -36,15 +37,12 @@ namespace CRMTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public ActionResult KategoriGetir(int id)
         {
             var kategori = c.Kategoris.Find(id);
             return View("KategoriGetir", kategori);
         }
-
         public ActionResult KategoriGuncelle(Kategori k) { 
-      
             var ktgr = c.Kategoris.Find(k.KategoriID);
             ktgr.KategoriAd = k.KategoriAd;
             c.SaveChanges();

@@ -9,15 +9,12 @@ namespace CRMTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int Personelid { get; set; }
-
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string PersonelAd { get; set; }
-
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string PersonelSoyad { get; set; }
-
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string PersonelGorsel { get; set; }

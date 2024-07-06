@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,6 +32,14 @@ namespace CRMTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult PersonelEkle(Personel p)
         {
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti= Path.GetExtension(Request.Files[0].FileName);
+                string yol = "~/Image/" + dosyaadi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                p.PersonelGorsel = "/Image/"+dosyaadi + uzanti;
+            }
             c.Personels.Add(p);
             c.SaveChanges();
             return View();
@@ -51,6 +60,16 @@ namespace CRMTicariOtomasyon.Controllers
 
         public ActionResult PersonelGuncelle(Personel p)
         {
+
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "~/Image/" + dosyaadi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                p.PersonelGorsel = "/Image/" + dosyaadi + uzanti;
+            }
+
             var prsn = c.Personels.Find(p.Personelid);
             prsn.PersonelAd = p.PersonelAd;
             prsn.PersonelSoyad= p.PersonelSoyad;
@@ -60,5 +79,12 @@ namespace CRMTicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult PersonelListe()
+        {
+            var sorgu = c.Personels.ToList();
+
+            return View(sorgu);  
+
+        }
     }
 }

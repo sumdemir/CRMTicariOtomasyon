@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CRMTicariOtomasyon.Models.Siniflar;
 
 namespace CRMTicariOtomasyon.Controllers
 {
     public class GaleriController : Controller
     {
         // GET: Galeri
+        Context c = new Context();
         public ActionResult Index()
         {
-            return View();
+            var degerler = c.Uruns.ToList();
+            return View(degerler);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿
+﻿@using CRMTicariOtomasyon.Models.Siniflar
+@model List<Urun>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -7,7 +8,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Thumber &mdash; Colorlib Website Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="~/thumber/css/jquery.scrollbar.css">
     <link rel="stylesheet" href="~/thumber/css/fancybox.min.css">
     <link rel="stylesheet" href="~/thumber/css/swiper.min.css">
-
     <link rel="stylesheet" href="~/thumber/css/style.css">
 
 </head>
@@ -36,39 +35,42 @@
         <main class="main-content">
             <div class="container-fluid photos">
                 <div class="row align-items-stretch">
-                    <img src="~/thumber/images/img_1.jpg" />
-                    <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-                        <a href="images/img_1.jpg" class="d-block photo-item" data-fancybox="gallery">
 
-                            <div class="photo-text-more">
-                                <span class="icon icon-search"></span>
-                            </div>
-                        </a>
-                    <div/>
-                </div>
-            <div/>
+                    @foreach (var x in Model)
+                    {
+                        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                            <a href="images/img_1.jpg" class="d-block photo-item" data-fancybox="gallery">
+                                <img src="@x.UrunGorsel" />
+                                <div class="photo-text-more">
+                                    <span class="icon icon-search"></span>
+                                </div>
+                            </a>
+                        </div>
+                    }
+
+               
+
         </main>
+        <div /> <!-- .site-wrap -->
 
-    </div> <!-- .site-wrap -->
-
-    <script src="~/thumber/js/jquery-3.3.1.min.js"></script>
-    <script src="~/thumber/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="~/thumber/js/jquery-ui.js"></script>
-    <script src="~/thumber/js/popper.min.js"></script>
-    <script src="~/thumber/js/bootstrap.min.js"></script>
-    <script src="~/thumber/js/owl.carousel.min.js"></script>
-    <!-- <script src="js/jquery.stellar.min.js"></script> -->
-    <script src="~/thumber/js/jquery.countdown.min.js"></script>
-    <script src="~/thumber/js/jquery.magnific-popup.min.js"></script>
-    <script src="~/thumber/js/bootstrap-datepicker.min.js"></script>
-    <script src="~/thumber/js/aos.js"></script>
-    <script src="~/thumber/js/jquery.fancybox.min.js"></script>
-    <script src="~/thumber/js/swiper.min.js"></script>
-    <script src="~/thumber/js/jquery.scrollbar.js"></script>
-    <script src="~/thumber/js/main.js"></script>
-
+        <script src="~/thumber/js/jquery-3.3.1.min.js"></script>
+        <script src="~/thumber/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="~/thumber/js/jquery-ui.js"></script>
+        <script src="~/thumber/js/popper.min.js"></script>
+        <script src="~/thumber/js/bootstrap.min.js"></script>
+        <script src="~/thumber/js/owl.carousel.min.js"></script>
+        <!-- <script src="js/jquery.stellar.min.js"></script> -->
+        <script src="~/thumber/js/jquery.countdown.min.js"></script>
+        <script src="~/thumber/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/thumber/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/thumber/js/aos.js"></script>
+        <script src="~/thumber/js/jquery.fancybox.min.js"></script>
+        <script src="~/thumber/js/swiper.min.js"></script>
+        <script src="~/thumber/js/jquery.scrollbar.js"></script>
+        <script src="~/thumber/js/main.js"></script>
 
 
-</body>
+
+        <body />
 </html>
 
