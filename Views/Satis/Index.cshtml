@@ -18,6 +18,7 @@
             <th>Tarih</th>
             <th>Güncelle</th>
             <th>Detaylar</th>
+            
         </tr>
     </thead>
     @foreach (var k in Model)
@@ -33,6 +34,7 @@
             <td>@k.Tarih</td>
             <td><a href="/Satis/SatisGetir/@k.Satisid" class="btn btn-warning">Güncelle</a></td>
             <td><a href="/Satis/SatisDetay/@k.Satisid" class="btn btn-default" style="background-color:lightcoral; color:white">Detaylar</a></td>
+            
         </tr>
     }
 </table>
