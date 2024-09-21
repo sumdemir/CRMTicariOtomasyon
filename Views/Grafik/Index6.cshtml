@@ -1,11 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "Index5";
+    ViewBag.Title = "Index6";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
-
+<br />
+<h2> Ürün - Stok Grafiği Line </h2>
 <html lang="en">
 
 <head>
@@ -90,9 +91,9 @@
 
 
 
-            var columnChart = new google.visualization.ColumnChart(document
+            var columnChart = new google.visualization.LineChart(document
 
-                .getElementById('columnchart_div'));
+                .getElementById('linechart_div'));
 
 
 
@@ -106,8 +107,9 @@
 
 <body>
 
-    <div id="columnchart_div"></div>
+    <div id="Linechart_div"></div>
 </body>
 
 </html>
+
 

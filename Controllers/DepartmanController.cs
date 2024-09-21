@@ -7,6 +7,7 @@ using CRMTicariOtomasyon.Models.Siniflar;
 
 namespace CRMTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class DepartmanController : Controller
     {
         // GET: Departman
@@ -16,6 +17,8 @@ namespace CRMTicariOtomasyon.Controllers
             var degerler = c.Departmants.Where(x => x.Durum == true).ToList();
             return View(degerler);
         }
+
+        [Authorize(Roles = "A")]
         [HttpGet]
         public ActionResult DepartmanEkle()
         {

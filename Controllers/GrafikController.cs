@@ -96,6 +96,16 @@ namespace CRMTicariOtomasyon.Controllers
             }
             return snf;
         }
+
+        public ActionResult Index6()
+        {
+            return View();
+        }
+
+        public ActionResult Index7()
+        {
+            return View();
+        }
     }
     
     
