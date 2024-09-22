@@ -258,35 +258,31 @@
                         <!-- /.card-header -->
 
                         <form class="form-group" method="post">
-                        <div class="card-body">
+                            
+                            <div class="card-body">
 
-                            <div class="form-group">
+                                <div class="form-group">
 
-                                <input class="form-control" name="Alici" placeholder="Kime:">
+                                    <input class="form-control" name="Alici" placeholder="Kime:">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <input class="form-control" name="Konu" placeholder="Konu:">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <textarea id="compose-textarea" name="İcerik" class="form-control" style="height: 300px">
+                                    </textarea>
+
+                                </div>
+
+                                <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
 
                             </div>
-
-                            <div class="form-group">
-
-                                <input class="form-control" name="Konu" placeholder="Konu:">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <textarea id="compose-textarea" name="icerik" class="form-control" style="height: 300px">
-
-                                
-                                    Merhaba deneme
-                                
-
-                    </textarea>
-
-                            </div>
-
-                            <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
-
-                        </div>
                         </form>
                         <!-- /.card-body -->
 
@@ -295,8 +291,6 @@
                             <div class="float-right">
 
                                 <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslak</button>
-
-                                <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
 
                             </div>
 
@@ -347,13 +341,13 @@
     <!-- Page Script -->
 
     <script>
-$(function () {
+        $(function () {
 
-    //Add text editor
+            //Add text editor
 
-    $('#compose-textarea').summernote()
+            $('#compose-textarea').summernote()
 
-  })</script>
+        })</script>
 
 </body>
 

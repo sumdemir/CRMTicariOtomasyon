@@ -74,7 +74,7 @@ namespace CRMTicariOtomasyon.Controllers
         public ActionResult GelenMesajlar()
         {
             var mail = (string)Session["CariMail"];
-            var mesajlar = c.Mesajlars.Where(x=> x.Alici == mail).ToList();
+            var mesajlar = c.Mesajlars.Where(x=> x.Alici == mail).OrderByDescending(x=> x.MesajID).ToList();
             var gelensayisi = c.Mesajlars.Count(x=> x.Alici == mail).ToString();
             var gidensayisi = c.Mesajlars.Count(x => x.Gönderici == mail).ToString();
             ViewBag.d1 = gelensayisi;
@@ -86,7 +86,7 @@ namespace CRMTicariOtomasyon.Controllers
         public ActionResult GidenMesajlar()
         {
             var mail = (string)Session["CariMail"];
-            var mesajlar = c.Mesajlars.Where(x => x.Gönderici == mail).ToList();
+            var mesajlar = c.Mesajlars.Where(x => x.Gönderici == mail).OrderByDescending(z => z.MesajID).ToList();
             var gidensayisi = c.Mesajlars.Count(x => x.Gönderici == mail).ToString();
             var gelensayisi = c.Mesajlars.Count(x => x.Alici == mail).ToString();
             ViewBag.d1 = gelensayisi;
